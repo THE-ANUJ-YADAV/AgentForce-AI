@@ -1,0 +1,613 @@
+{
+  "contacts": [
+    {
+      "id": "cnt-763a074d",
+      "name": "Rahul Sharma",
+      "company": "ABC Technologies",
+      "email": "rahul.sharma@abctechnologies.example",
+      "leadStatus": "New",
+      "leadScore": 70,
+      "lastActivity": "2026-10-28T07:53:47.099Z"
+    },
+    {
+      "id": "cnt-101",
+      "name": "Ananya Iyer",
+      "company": "Apex Cloud Solutions",
+      "email": "ananya.iyer@apexcloud.example",
+      "leadStatus": "Qualified",
+      "leadScore": 88,
+      "lastActivity": "2026-10-27T06:53:31.681Z"
+    },
+    {
+      "id": "cnt-102",
+      "name": "Vikram Patel",
+      "company": "FinVantage Systems",
+      "email": "vikram.patel@finvantage.example",
+      "leadStatus": "Proposal",
+      "leadScore": 92,
+      "lastActivity": "2026-10-27T18:53:31.681Z"
+    },
+    {
+      "id": "cnt-103",
+      "name": "Priya Nambiar",
+      "company": "Zenith Logistics",
+      "email": "priya.n@zenithlog.example",
+      "leadStatus": "Contacted",
+      "leadScore": 65,
+      "lastActivity": "2026-10-26T06:53:31.681Z"
+    },
+    {
+      "id": "cnt-104",
+      "name": "Rohan Deshmukh",
+      "company": "BlueWave Digital",
+      "email": "rohan.d@bluewave.example",
+      "leadStatus": "New",
+      "leadScore": 50,
+      "lastActivity": "2026-10-28T00:53:31.681Z"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "tsk-193179c5",
+      "title": "Follow up with Rahul Sharma from ABC Technologies",
+      "description": "Execute scheduled business follow-up regarding partnership and solution alignment.",
+      "priority": "Medium",
+      "status": "open",
+      "dueDate": "2026-10-30",
+      "dueDateFriendly": "Fri, 30 Oct 2026",
+      "dueDatePhrase": "Friday",
+      "assignedAgent": "Task Agent",
+      "contactId": "cnt-763a074d",
+      "createdAt": "2026-10-28T07:53:47.573Z",
+      "updatedAt": "2026-10-28T07:53:47.573Z"
+    },
+    {
+      "id": "tsk-201",
+      "title": "Review Q4 Cloud Migration Proposal with Ananya",
+      "description": "Prepare architectural sizing sheet and schedule follow-up presentation.",
+      "priority": "High",
+      "status": "open",
+      "dueDate": "2026-10-30",
+      "dueDateFriendly": "Fri, 30 Oct 2026",
+      "dueDatePhrase": "Friday",
+      "assignedAgent": "Task Agent",
+      "contactId": "cnt-101",
+      "createdAt": "2026-10-27T10:53:31.681Z",
+      "updatedAt": "2026-10-27T10:53:31.681Z"
+    },
+    {
+      "id": "tsk-202",
+      "title": "Send Revised Contract to Vikram Patel",
+      "description": "Incorporate legal feedback on payment terms for FinVantage.",
+      "priority": "Medium",
+      "status": "in_progress",
+      "dueDate": "2026-10-31",
+      "dueDateFriendly": "Sat, 31 Oct 2026",
+      "dueDatePhrase": "in 3 days",
+      "assignedAgent": "Task Agent",
+      "contactId": "cnt-102",
+      "createdAt": "2026-10-27T20:53:31.681Z",
+      "updatedAt": "2026-10-28T04:53:31.681Z"
+    },
+    {
+      "id": "tsk-203",
+      "title": "Introductory Discovery Call with Zenith Logistics",
+      "description": "Discuss supply chain tracking requirements with Priya.",
+      "priority": "Low",
+      "status": "open",
+      "dueDate": "2026-11-02",
+      "dueDateFriendly": "Mon, 2 Nov 2026",
+      "dueDatePhrase": "next Monday",
+      "assignedAgent": "Task Agent",
+      "contactId": "cnt-103",
+      "createdAt": "2026-10-27T00:53:31.681Z",
+      "updatedAt": "2026-10-27T00:53:31.681Z"
+    }
+  ],
+  "workflows": [
+    {
+      "id": "wf-c2faf2e5",
+      "request": "Add Rahul Sharma from ABC Technologies to CRM, create a follow-up task for Friday, and prepare a personalized product demo email.",
+      "status": "completed",
+      "plannerMode": "fallback",
+      "plannerFallbackReason": "GEMINI_API_KEY not configured (using deterministic fallback planner)",
+      "plan": [
+        {
+          "id": "step_1",
+          "action": "create_contact",
+          "agent": "CRM Agent",
+          "dependsOn": [],
+          "params": {
+            "name": "Rahul Sharma",
+            "company": "ABC Technologies",
+            "email": "rahul.sharma@abctechnologies.example",
+            "leadStatus": "New",
+            "leadScore": 70
+          }
+        },
+        {
+          "id": "step_2",
+          "action": "create_task",
+          "agent": "Task Agent",
+          "dependsOn": [
+            "step_1"
+          ],
+          "params": {
+            "title": "Follow up with Rahul Sharma from ABC Technologies",
+            "description": "Execute scheduled business follow-up regarding partnership and solution alignment.",
+            "priority": "Medium",
+            "dueDatePhrase": "Friday"
+          }
+        },
+        {
+          "id": "step_3",
+          "action": "draft_email",
+          "agent": "Email Agent",
+          "dependsOn": [
+            "step_1"
+          ],
+          "params": {
+            "company": "ABC Technologies",
+            "purpose": "product demo"
+          }
+        },
+        {
+          "id": "step_4",
+          "action": "request_email_approval",
+          "agent": "Supervisor",
+          "dependsOn": [
+            "step_3"
+          ],
+          "params": {
+            "reason": "Outbound customer email requires human verification before simulated dispatch."
+          }
+        }
+      ],
+      "steps": [
+        {
+          "id": "step_1",
+          "action": "create_contact",
+          "agent": "CRM Agent",
+          "dependsOn": [],
+          "params": {
+            "name": "Rahul Sharma",
+            "company": "ABC Technologies",
+            "email": "rahul.sharma@abctechnologies.example",
+            "leadStatus": "New",
+            "leadScore": 70
+          },
+          "status": "completed",
+          "output": {
+            "ok": true,
+            "operation": "created",
+            "contact": {
+              "id": "cnt-763a074d",
+              "name": "Rahul Sharma",
+              "company": "ABC Technologies",
+              "email": "rahul.sharma@abctechnologies.example",
+              "leadStatus": "New",
+              "leadScore": 70,
+              "lastActivity": "2026-10-28T07:53:47.099Z"
+            }
+          },
+          "error": null,
+          "retryCount": 0,
+          "createdAt": "2026-10-28T07:53:46.633Z",
+          "updatedAt": "2026-10-28T07:53:47.101Z"
+        },
+        {
+          "id": "step_2",
+          "action": "create_task",
+          "agent": "Task Agent",
+          "dependsOn": [
+            "step_1"
+          ],
+          "params": {
+            "title": "Follow up with Rahul Sharma from ABC Technologies",
+            "description": "Execute scheduled business follow-up regarding partnership and solution alignment.",
+            "priority": "Medium",
+            "dueDatePhrase": "Friday"
+          },
+          "status": "completed",
+          "output": {
+            "ok": true,
+            "task": {
+              "id": "tsk-193179c5",
+              "title": "Follow up with Rahul Sharma from ABC Technologies",
+              "description": "Execute scheduled business follow-up regarding partnership and solution alignment.",
+              "priority": "Medium",
+              "status": "open",
+              "dueDate": "2026-10-30",
+              "dueDateFriendly": "Fri, 30 Oct 2026",
+              "dueDatePhrase": "Friday",
+              "assignedAgent": "Task Agent",
+              "contactId": "cnt-763a074d",
+              "createdAt": "2026-10-28T07:53:47.573Z",
+              "updatedAt": "2026-10-28T07:53:47.573Z"
+            },
+            "resolvedDate": {
+              "iso": "2026-10-30",
+              "friendly": "Fri, 30 Oct 2026",
+              "phrase": "Friday"
+            }
+          },
+          "error": null,
+          "retryCount": 0,
+          "createdAt": "2026-10-28T07:53:46.634Z",
+          "updatedAt": "2026-10-28T07:53:47.576Z"
+        },
+        {
+          "id": "step_3",
+          "action": "draft_email",
+          "agent": "Email Agent",
+          "dependsOn": [
+            "step_1"
+          ],
+          "params": {
+            "company": "ABC Technologies",
+            "purpose": "product demo"
+          },
+          "status": "completed",
+          "output": {
+            "ok": true,
+            "draft": {
+              "recipient": {
+                "name": "Rahul Sharma",
+                "email": "rahul.sharma@abctechnologies.example",
+                "company": "ABC Technologies"
+              },
+              "subject": "Accelerating business operations for ABC Technologies with AgentForce AI",
+              "body": "Hi Rahul,\n\nI hope this email finds you well. I noticed the impressive work ABC Technologies is doing in your market.\n\nAt AgentForce AI, we help high-growth enterprises automate repetitive business workflows across CRM, task delegation, and cross-functional operations using autonomous agent swarms.\n\nI'd love to share a brief 15-minute product demonstration highlighting how our autonomous workforce can eliminate manual data entry and streamline team execution.\n\nPlease let me know if you would be open to a quick introductory discussion.\n\nBest regards,\nAgentForce AI Workforce Solutions"
+            },
+            "mode": "fallback",
+            "fallbackReason": "Gemini API key not configured (using deterministic template)"
+          },
+          "error": null,
+          "retryCount": 0,
+          "createdAt": "2026-10-28T07:53:46.634Z",
+          "updatedAt": "2026-10-28T07:53:48.049Z"
+        },
+        {
+          "id": "step_4",
+          "action": "request_email_approval",
+          "agent": "Supervisor",
+          "dependsOn": [
+            "step_3"
+          ],
+          "params": {
+            "reason": "Outbound customer email requires human verification before simulated dispatch."
+          },
+          "status": "completed",
+          "output": {
+            "execution": {
+              "action": "Simulated email execution",
+              "dispatchedAt": "2026-10-28T07:54:01.064Z",
+              "recipient": "rahul.sharma@abctechnologies.example",
+              "subject": "Accelerating business operations for ABC Technologies with AgentForce AI",
+              "reviewer": "Demo Reviewer",
+              "status": "DISPATCHED_SIMULATED",
+              "realDispatch": {
+                "messageId": "<630ccdea-98d5-72f7-903f-6b2f4ed25bf8@agentforce.ai>",
+                "recipient": "rahul.sharma@abctechnologies.example",
+                "subject": "Accelerating business operations for ABC Technologies with AgentForce AI",
+                "previewUrl": "https://ethereal.email/message/auGqDjzZI-YJFkiGauGqFruQ5JWplVEXAAAAAURDwFN646mIKptDJYOmriw",
+                "isTestMailbox": true,
+                "dispatchedAt": "2026-10-28T07:54:01.064Z"
+              },
+              "previewUrl": "https://ethereal.email/message/auGqDjzZI-YJFkiGauGqFruQ5JWplVEXAAAAAURDwFN646mIKptDJYOmriw"
+            }
+          },
+          "error": null,
+          "retryCount": 0,
+          "createdAt": "2026-10-28T07:53:46.634Z",
+          "updatedAt": "2026-10-28T07:54:01.066Z"
+        }
+      ],
+      "approvalId": "appr-6fc89d0f",
+      "summary": {
+        "totalSteps": 4,
+        "completedSteps": 4,
+        "failedSteps": 0,
+        "blockedSteps": 0,
+        "awaitingApprovalSteps": 0,
+        "rejectedSteps": 0,
+        "approvalOutcome": "approved",
+        "resolvedDueDate": "Fri, 30 Oct 2026 (2026-10-30)",
+        "outcomeText": "All 4 operations executed successfully. Business request fully satisfied."
+      },
+      "thoughts": [
+        {
+          "timestamp": "2026-10-28T07:53:47.094Z",
+          "agent": "CRM Agent",
+          "text": "Dispatching action \"create_contact\" with parameters: {\"name\":\"Rahul Sharma\",\"company\":\"ABC Technologies\",\"email\":\"rahul.sharma@abctechnologies.example\",\"leadStatus\":\"New\",\"leadScore\":70}. Checking state preconditions."
+        },
+        {
+          "timestamp": "2026-10-28T07:53:47.103Z",
+          "agent": "CRM Agent",
+          "text": "Operation \"create_contact\" completed successfully. Produced output: \"created\"."
+        },
+        {
+          "timestamp": "2026-10-28T07:53:47.566Z",
+          "agent": "Task Agent",
+          "text": "Dispatching action \"create_task\" with parameters: {\"title\":\"Follow up with Rahul Sharma from ABC Technologies\",\"description\":\"Execute scheduled business follow-up regarding partnership and solution alignment.\",\"priority\":\"Medium\",\"dueDatePhrase\":\"Friday\"}. Checking state preconditions."
+        },
+        {
+          "timestamp": "2026-10-28T07:53:47.577Z",
+          "agent": "Task Agent",
+          "text": "Operation \"create_task\" completed successfully. Produced output: \"ok\"."
+        },
+        {
+          "timestamp": "2026-10-28T07:53:48.043Z",
+          "agent": "Email Agent",
+          "text": "Dispatching action \"draft_email\" with parameters: {\"company\":\"ABC Technologies\",\"purpose\":\"product demo\"}. Checking state preconditions."
+        },
+        {
+          "timestamp": "2026-10-28T07:53:48.050Z",
+          "agent": "Email Agent",
+          "text": "Operation \"draft_email\" completed successfully. Produced output: \"ok\"."
+        },
+        {
+          "timestamp": "2026-10-28T07:53:48.516Z",
+          "agent": "Supervisor",
+          "text": "Dispatching action \"request_email_approval\" with parameters: {\"reason\":\"Outbound customer email requires human verification before simulated dispatch.\"}. Checking state preconditions."
+        },
+        {
+          "timestamp": "2026-10-28T07:53:48.523Z",
+          "agent": "Supervisor",
+          "text": "Approval gate established (appr-6fc89d0f) for outbound communication to rahul.sharma@abctechnologies.example. Execution paused awaiting human sign-off."
+        }
+      ],
+      "createdAt": "2026-10-28T07:53:46.634Z",
+      "updatedAt": "2026-10-28T07:54:01.069Z"
+    }
+  ],
+  "approvals": [
+    {
+      "id": "appr-6fc89d0f",
+      "workflowId": "wf-c2faf2e5",
+      "stepId": "step_4",
+      "actionType": "request_email_approval",
+      "recipient": {
+        "name": "Rahul Sharma",
+        "email": "rahul.sharma@abctechnologies.example",
+        "company": "ABC Technologies"
+      },
+      "proposedSubject": "Accelerating business operations for ABC Technologies with AgentForce AI",
+      "proposedBody": "Hi Rahul,\n\nI hope this email finds you well. I noticed the impressive work ABC Technologies is doing in your market.\n\nAt AgentForce AI, we help high-growth enterprises automate repetitive business workflows across CRM, task delegation, and cross-functional operations using autonomous agent swarms.\n\nI'd love to share a brief 15-minute product demonstration highlighting how our autonomous workforce can eliminate manual data entry and streamline team execution.\n\nPlease let me know if you would be open to a quick introductory discussion.\n\nBest regards,\nAgentForce AI Workforce Solutions",
+      "reason": "Outbound customer email requires human verification before simulated dispatch.",
+      "status": "approved",
+      "reviewer": "Demo Reviewer",
+      "decisionTimestamp": "2026-10-28T07:54:01.064Z",
+      "executionResult": {
+        "action": "Simulated email execution",
+        "dispatchedAt": "2026-10-28T07:54:01.064Z",
+        "recipient": "rahul.sharma@abctechnologies.example",
+        "subject": "Accelerating business operations for ABC Technologies with AgentForce AI",
+        "reviewer": "Demo Reviewer",
+        "status": "DISPATCHED_SIMULATED",
+        "realDispatch": {
+          "messageId": "<630ccdea-98d5-72f7-903f-6b2f4ed25bf8@agentforce.ai>",
+          "recipient": "rahul.sharma@abctechnologies.example",
+          "subject": "Accelerating business operations for ABC Technologies with AgentForce AI",
+          "previewUrl": "https://ethereal.email/message/auGqDjzZI-YJFkiGauGqFruQ5JWplVEXAAAAAURDwFN646mIKptDJYOmriw",
+          "isTestMailbox": true,
+          "dispatchedAt": "2026-10-28T07:54:01.064Z"
+        },
+        "previewUrl": "https://ethereal.email/message/auGqDjzZI-YJFkiGauGqFruQ5JWplVEXAAAAAURDwFN646mIKptDJYOmriw"
+      },
+      "createdAt": "2026-10-28T07:53:48.518Z",
+      "updatedAt": "2026-10-28T07:54:01.064Z"
+    }
+  ],
+  "logs": [
+    {
+      "id": "log-081e1a63",
+      "timestamp": "2026-10-28T07:54:01.068Z",
+      "workflowId": "wf-c2faf2e5",
+      "agentName": "Supervisor",
+      "action": "executeApprovedAction",
+      "toolName": "executeApprovedAction",
+      "status": "completed",
+      "message": "Approved action executed by Demo Reviewer: Simulated email dispatched to rahul.sharma@abctechnologies.example.",
+      "data": {
+        "action": "Simulated email execution",
+        "dispatchedAt": "2026-10-28T07:54:01.064Z",
+        "recipient": "rahul.sharma@abctechnologies.example",
+        "subject": "Accelerating business operations for ABC Technologies with AgentForce AI",
+        "reviewer": "Demo Reviewer",
+        "status": "DISPATCHED_SIMULATED",
+        "realDispatch": {
+          "messageId": "<630ccdea-98d5-72f7-903f-6b2f4ed25bf8@agentforce.ai>",
+          "recipient": "rahul.sharma@abctechnologies.example",
+          "subject": "Accelerating business operations for ABC Technologies with AgentForce AI",
+          "previewUrl": "https://ethereal.email/message/auGqDjzZI-YJFkiGauGqFruQ5JWplVEXAAAAAURDwFN646mIKptDJYOmriw",
+          "isTestMailbox": true,
+          "dispatchedAt": "2026-10-28T07:54:01.064Z"
+        },
+        "previewUrl": "https://ethereal.email/message/auGqDjzZI-YJFkiGauGqFruQ5JWplVEXAAAAAURDwFN646mIKptDJYOmriw"
+      }
+    },
+    {
+      "id": "log-4d0e1921",
+      "timestamp": "2026-10-28T07:53:48.520Z",
+      "workflowId": "wf-c2faf2e5",
+      "agentName": "Supervisor",
+      "action": "request_email_approval",
+      "toolName": "requestApproval",
+      "status": "completed",
+      "message": "Created approval gate (appr-6fc89d0f) for outbound email to rahul.sharma@abctechnologies.example. Pausing execution for human review.",
+      "data": {
+        "id": "appr-6fc89d0f",
+        "workflowId": "wf-c2faf2e5",
+        "stepId": "step_4",
+        "actionType": "request_email_approval",
+        "recipient": {
+          "name": "Rahul Sharma",
+          "email": "rahul.sharma@abctechnologies.example",
+          "company": "ABC Technologies"
+        },
+        "proposedSubject": "Accelerating business operations for ABC Technologies with AgentForce AI",
+        "proposedBody": "Hi Rahul,\n\nI hope this email finds you well. I noticed the impressive work ABC Technologies is doing in your market.\n\nAt AgentForce AI, we help high-growth enterprises automate repetitive business workflows across CRM, task delegation, and cross-functional operations using autonomous agent swarms.\n\nI'd love to share a brief 15-minute product demonstration highlighting how our autonomous workforce can eliminate manual data entry and streamline team execution.\n\nPlease let me know if you would be open to a quick introductory discussion.\n\nBest regards,\nAgentForce AI Workforce Solutions",
+        "reason": "Outbound customer email requires human verification before simulated dispatch.",
+        "status": "pending",
+        "reviewer": null,
+        "decisionTimestamp": null,
+        "executionResult": null,
+        "createdAt": "2026-10-28T07:53:48.518Z",
+        "updatedAt": "2026-10-28T07:53:48.518Z"
+      }
+    },
+    {
+      "id": "log-b9d24a43",
+      "timestamp": "2026-10-28T07:53:48.048Z",
+      "workflowId": "wf-c2faf2e5",
+      "agentName": "Email Agent",
+      "action": "draft_email",
+      "toolName": "generateEmailDraft",
+      "status": "completed",
+      "message": "Email draft generated successfully via Deterministic Template.",
+      "data": {
+        "usedGemini": false,
+        "geminiFallbackReason": "Gemini API key not configured (using deterministic template)",
+        "subject": "Accelerating business operations for ABC Technologies with AgentForce AI"
+      }
+    },
+    {
+      "id": "log-d58557f9",
+      "timestamp": "2026-10-28T07:53:48.045Z",
+      "workflowId": "wf-c2faf2e5",
+      "agentName": "Email Agent",
+      "action": "draft_email",
+      "toolName": "generateEmailDraft",
+      "status": "running",
+      "message": "Drafting outbound email for recipient at ABC Technologies...",
+      "data": null
+    },
+    {
+      "id": "log-a342aca4",
+      "timestamp": "2026-10-28T07:53:47.575Z",
+      "workflowId": "wf-c2faf2e5",
+      "agentName": "Task Agent",
+      "action": "create_task",
+      "toolName": "createTask",
+      "status": "completed",
+      "message": "Task successfully scheduled for Fri, 30 Oct 2026 (2026-10-30) based on \"Friday\".",
+      "data": {
+        "task": {
+          "id": "tsk-193179c5",
+          "title": "Follow up with Rahul Sharma from ABC Technologies",
+          "description": "Execute scheduled business follow-up regarding partnership and solution alignment.",
+          "priority": "Medium",
+          "status": "open",
+          "dueDate": "2026-10-30",
+          "dueDateFriendly": "Fri, 30 Oct 2026",
+          "dueDatePhrase": "Friday",
+          "assignedAgent": "Task Agent",
+          "contactId": "cnt-763a074d",
+          "createdAt": "2026-10-28T07:53:47.573Z",
+          "updatedAt": "2026-10-28T07:53:47.573Z"
+        },
+        "resolvedDate": {
+          "iso": "2026-10-30",
+          "friendly": "Fri, 30 Oct 2026",
+          "phrase": "Friday"
+        }
+      }
+    },
+    {
+      "id": "log-34bf00ae",
+      "timestamp": "2026-10-28T07:53:47.568Z",
+      "workflowId": "wf-c2faf2e5",
+      "agentName": "Task Agent",
+      "action": "create_task",
+      "toolName": "createTask",
+      "status": "running",
+      "message": "Resolving deadline phrase \"Friday\" and creating task \"Follow up with Rahul Sharma from ABC Technologies\"...",
+      "data": null
+    },
+    {
+      "id": "log-97dfb949",
+      "timestamp": "2026-10-28T07:53:47.100Z",
+      "workflowId": "wf-c2faf2e5",
+      "agentName": "CRM Agent",
+      "action": "create_contact",
+      "toolName": "createContact",
+      "status": "completed",
+      "message": "Created new CRM contact for Rahul Sharma at ABC Technologies with Lead Score 70.",
+      "data": {
+        "id": "cnt-763a074d",
+        "name": "Rahul Sharma",
+        "company": "ABC Technologies",
+        "email": "rahul.sharma@abctechnologies.example",
+        "leadStatus": "New",
+        "leadScore": 70,
+        "lastActivity": "2026-10-28T07:53:47.099Z"
+      }
+    },
+    {
+      "id": "log-91d9ee60",
+      "timestamp": "2026-10-28T07:53:47.097Z",
+      "workflowId": "wf-c2faf2e5",
+      "agentName": "CRM Agent",
+      "action": "create_contact",
+      "toolName": "findContact",
+      "status": "running",
+      "message": "Searching CRM for existing contact \"Rahul Sharma\" at \"ABC Technologies\"...",
+      "data": null
+    },
+    {
+      "id": "log-c2c00ac9",
+      "timestamp": "2026-10-28T07:53:46.635Z",
+      "workflowId": "wf-c2faf2e5",
+      "agentName": "Supervisor",
+      "action": "workflow_created",
+      "toolName": "store",
+      "status": "info",
+      "message": "Workflow wf-c2faf2e5 registered with 4 operational steps. Launching asynchronous execution pipeline.",
+      "data": {
+        "workflowId": "wf-c2faf2e5",
+        "stepCount": 4
+      }
+    },
+    {
+      "id": "log-2384a944",
+      "timestamp": "2026-10-28T07:53:46.632Z",
+      "workflowId": null,
+      "agentName": "Planner Agent",
+      "action": "plan_generated",
+      "toolName": "planner",
+      "status": "completed",
+      "message": "Structured plan composed (4 steps) via FALLBACK planner.",
+      "data": {
+        "mode": "fallback",
+        "fallbackReason": "GEMINI_API_KEY not configured (using deterministic fallback planner)",
+        "stepCount": 4
+      }
+    },
+    {
+      "id": "log-786d2bfa",
+      "timestamp": "2026-10-28T07:53:46.628Z",
+      "workflowId": null,
+      "agentName": "Planner Agent",
+      "action": "decompose_goal",
+      "toolName": "planner",
+      "status": "running",
+      "message": "Decomposing natural-language business request into structured multi-agent plan...",
+      "data": null
+    },
+    {
+      "id": "log-init-1",
+      "timestamp": "2026-10-28T06:53:49.183Z",
+      "workflowId": null,
+      "agentName": "System",
+      "action": "system_initialized",
+      "toolName": "store",
+      "status": "info",
+      "message": "AgentForce AI Persistent Store initialized with seed contacts and tasks",
+      "data": {
+        "contactsCount": 4,
+        "tasksCount": 3
+      }
+    }
+  ]
+}
